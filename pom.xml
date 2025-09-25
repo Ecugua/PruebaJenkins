@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.mycompany</groupId>
-  <artifactId>Estudiantes</artifactId>
+  <groupId>com.mycompany</groupId>           <!-- 👈 cambia -->
+  <artifactId>Proyecto</artifactId>   <!-- 👈 cambia -->
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -32,7 +32,13 @@
 
   <build>
     <plugins>
-      <!-- Genera el HTML sencillo en target/site/surefire-report.html -->
+      <!-- Runner de tests (recomendado fijar versión) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+      </plugin>
+      <!-- Reporte HTML sencillo: target/site/surefire-report.html -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
@@ -43,7 +49,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>21</maven.compiler.release>
-    <exec.mainClass>com.mycompany.estudiantes.Estudiantes</exec.mainClass>
+    <maven.compiler.release>21</maven.compiler.release>   <!-- 👈 deja 21 si usas JDK 21 -->
+    <!-- Si NO tendrás clase main, puedes borrar esta propiedad -->
+    <exec.mainClass>com.mycompany.proyecto.Proyecto</exec.mainClass> <!-- 👈 opcional -->
   </properties>
 </project>
