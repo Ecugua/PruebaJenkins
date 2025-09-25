@@ -9,14 +9,6 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.release>21</maven.compiler.release>
-    <!-- opcional, solo si vas a ejecutar un main -->
-    <exec.mainClass>com.mycompany.estudiantes.Estudiantes</exec.mainClass>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -40,38 +32,18 @@
 
   <build>
     <plugins>
-      <!-- Genera el sitio con skin Fluido (colores/menú) -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.12.1</version>
-        <configuration>
-          <skin>
-            <groupId>org.apache.maven.skins</groupId>
-            <artifactId>maven-fluido-skin</artifactId>
-            <version>1.11.1</version>
-          </skin>
-        </configuration>
-      </plugin>
-
-      <!-- (Opcional) Fijar versión del runner de tests -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
-      </plugin>
-    </plugins>
-  </build>
-
-  <!-- Los reportes que aparecerán dentro del sitio -->
-  <reporting>
-    <plugins>
+      <!-- Genera el HTML sencillo en target/site/surefire-report.html -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
         <version>3.2.5</version>
       </plugin>
     </plugins>
-  </reporting>
-</project>
+  </build>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+    <exec.mainClass>com.mycompany.estudiantes.Estudiantes</exec.mainClass>
+  </properties>
+</project>
